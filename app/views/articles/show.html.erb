@@ -11,11 +11,19 @@
       %></li>
 </ul>
 
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <p>
+    <strong><%= comment.commenter %>:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
 <h2>Add a comment:</h2>
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
   <p>
-    <%= form.label :comenter %><br>
-    <%= form.text_field :comenter %><br>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %><br>
   </p>
   <p>
     <%= form.label :body %><br>
